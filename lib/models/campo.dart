@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-
 import 'explosao_exception.dart';
 
 class Campo {
@@ -87,14 +86,14 @@ class Campo {
   bool get resolvido {
     bool minadoEMarcado = minado && marcado;
     bool seguroEAberto = !minado && aberto;
-    return minadoEMarcado && seguroEAberto;
+    return minadoEMarcado || seguroEAberto;
   }
 
   bool get vizinhancaSegura {
-    return vizinhos.every((v) => !v._minado);
+    return vizinhos.every((v) => !v.minado);
   }
 
   int get qtdeMinasNaVizinhanca {
     return vizinhos.where((v) => v.minado).length;
-  }
+  }  
 }
