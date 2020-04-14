@@ -17,15 +17,16 @@ class TabuleiroWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: GridView.count(
-      crossAxisCount: tabuleiro.colunas,
-      children: tabuleiro.campos.map((c) {
-        CampoWidget(
-          campo: c,
-          onAbrir: onAbrir,
-          onAlternarMarcacao: onAlternarMarcacao,
-        );
-      }).toList(),
-    ));
+      child: GridView.count(
+        crossAxisCount: tabuleiro.colunas,
+        children: tabuleiro.campos.map((c) {
+          return CampoWidget(
+            campo: c,
+            onAbrir: onAbrir,
+            onAlternarMarcacao: onAlternarMarcacao,
+          );
+        }).toList(),
+      ),
+    );
   }
 }
